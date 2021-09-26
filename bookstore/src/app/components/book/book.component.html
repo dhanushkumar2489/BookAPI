@@ -1,0 +1,78 @@
+<div class="container">
+    <h2>Books</h2>
+    <form [formGroup]="booksForm" (ngSubmit)="handleChangeBook($event.submitter.id)">
+        <table class="table table-bordered table-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Author</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of books">
+                    <td>{{ book.Id }}</td>
+                    <td>{{ book.Author }}</td>
+                    <td>{{ book.Title }}</td>
+                    <td>{{ book.Price }}</td>
+                    <td class="text-center">
+                        <button class="btn btn-primary btn-sm me-1 mt-1" type="button" 
+                        (click)="handleViewBook(book.Id)">View</button>
+                        <button class="btn btn-danger btn-sm me-1 mt-1" type="button"
+                            (click)="handleDeleteBook(book.Id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>  
+    </form>
+          <!--
+          <p class="border-bottom">ID : {{books[0]}}</p>
+          <p class="border-bottom">Author : {{books[1]}}</p>
+          <p class="border-bottom">Title: {{books[2]}}</p>
+          <p class="border-bottom">Price : {{books[3]}}</p>
+            -->
+        
+    
+
+    <br><br>    
+    <form [formGroup]="booksForm" (ngSubmit)="handleChangeBook($event.submitter.id)">
+        <h4 class="text-center">Add/Update Form</h4>
+        <div class="form-group row">
+          <label for="colFormLabel" class="col-sm-2 col-form-label">Id</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="number" formControlName="Id" placeholder="Id*">
+          </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Author</label>
+            <div class="col-sm-10">
+              <input class="form-control" type="text" formControlName="Author" placeholder="Author">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Title</label>
+            <div class="col-sm-10">
+              <input class="form-control" type="text" formControlName="Title" placeholder="Title">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Price</label>
+            <div class="col-sm-10">
+              <input class="form-control" type="number" formControlName="Price" placeholder="Price">
+            </div>
+        </div>
+        <br>
+        <div class="text-center">
+            <button class="btn btn-secondary btn-sm me-1 mt-1" type="submit"
+                id="AddBtn" >AddBook</button>
+            <button class="btn btn-warning btn-sm me-1 mt-1" type="submit"
+                id="updateBtn" >Update</button>
+        </div>
+      </form>
+
+      <br><br><br><br>
+      <br><br><br><br>
+</div>
+
